@@ -1,0 +1,16 @@
+#map{
+	height: 100%;
+}
+
+html,
+body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+a[title="Report errors in the road map or imagery to Google"] {
+    display: none !important;
+}
+.gm-style-cc:last-child {
+    display: none !important;
+}
