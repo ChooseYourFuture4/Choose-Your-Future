@@ -4,8 +4,923 @@
     <title>Simple Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-    <link rel="stylesheet" type="text/css" href="./MainMap.css" />
-    <script type="module" src="./MainMap.js"></script>
+    <link rel="stylesheet" type="text/css" href="MainMap.css" />
+    <script>
+    	const Romania = { lat: 45.81348649679973, lng: 24.916992187500004}; 
+    	const Brasov = {lat: 45.65244828675087, lng: 25.598144531250004};
+    	const Iasi = {lat: 47.157155337271554, lng: 27.58100509643555};
+    	const Bucuresti = {lat: 44.43181858864192, lng: 26.09390258789063};
+    	const Cluj = {lat: 46.77161447063216, lng: 23.595542907714847};
+    	const Timisoara = {lat: 45.75602615586017, lng: 21.227645874023438};
+    	const Constanta = {lat: 44.17580225275465, lng: 28.631057739257816};
+    	const Arad = {lat: 46.18078126223906, lng: 21.319656372070316};  
+    	var BV1 = {lat: 45.65476560074866, lng: 25.59749007225037};
+    	const BV2 = {lat: 45.644213171967046, lng: 25.595419406890873};
+    	const BV3 = {lat: 45.653745694427634, lng: 25.5977475643158};
+      const BV4 = {lat: 45.64506073966895, lng: 25.5924528837204};
+      const BV5 = {lat: 45.63866991305544, lng: 25.58341383934021};
+      const BV6 = {lat: 45.653921929567964, lng: 25.59774219989777};
+      const BV7 = {lat: 45.64434068297175, lng: 25.595301389694217};
+      const BV8 = {lat: 45.654113162816195, lng: 25.597994327545166};
+      const BV9 = {lat: 45.64505698939764, lng: 25.592849850654602};
+      const BV10 = {lat: 45.64927588589991, lng: 25.601470470428467};
+      const BV11 = {lat: 45.64264176252335, lng: 25.59569299221039};
+      const BV12 = {lat: 45.6429080426429, lng: 25.597205758094788};
+      const BV13 = {lat: 45.653963176010045, lng: 25.59669077396393};
+      const BV14 = {lat: 45.6398851263562, lng: 25.5857527256012};
+      const BV15 = {lat: 45.6548818388929, lng: 25.59649229049683};
+      const BV16 = {lat: 45.66258676485685, lng: 25.6194144487381};
+      const BV17 = {lat: 45.64513199477636, lng: 25.59215247631073};
+      const BV18 = {lat: 45.662924182636324, lng: 25.61947882175446};
+      const BV19 = {lat: 45.66254177566595, lng: 25.58947563171387};
+      var marker = "BV1";
+		
+      const string = "BV1";
+      function CenterJudet(controlDiv, map){
+        const controlUI = document.createElement("div");
+
+        controlUI.style.backgroundColor = "#fff";
+        controlUI.style.border = "2px solid #fff";
+        controlUI.style.borderRadius = "3px";
+        controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+        controlUI.style.cursor = "pointer";
+        controlUI.style.marginTop = "8px";
+        controlUI.style.marginBottom = "22px";
+        controlUI.style.textAlign = "center";
+        controlUI.title = "Apasati pentru a recentra harta pe judet";
+        controlDiv.appendChild(controlUI);
+
+        const controlText = document.createElement("div");
+
+        controlText.style.color = "rgb(25,25,25)";
+        controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+        controlText.style.fontSize = "16px";
+        controlText.style.lineHeight = "38px";
+        controlText.style.paddingLeft = "5px";
+        controlText.style.paddingRight = "5px";
+        controlText.innerHTML = "Recentrare Judet";
+        controlUI.appendChild(controlText);
+      };
+
+      function MenuButton(controlDiv, map){
+        const controlUI = document.createElement("div");
+
+        controlUI.style.backgroundColor = "#fff";
+        controlUI.style.border = "2px solid #fff";
+        controlUI.style.borderRadius = "3px";
+        controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+        controlUI.style.cursor = "pointer";
+        controlUI.style.marginTop = "8px";
+        controlUI.style.marginBottom = "22px";
+        controlUI.style.textAlign = "center";
+        controlDiv.appendChild(controlUI);
+
+        const controlText = document.createElement("div");
+
+        controlText.style.color = "rgb(25,25,25)";
+        controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+        controlText.style.fontSize = "16px";
+        controlText.style.lineHeight = "38px";
+        controlText.style.paddingLeft = "5px";
+        controlText.style.paddingRight = "5px";
+        controlText.innerHTML = "Meniu";
+        controlUI.appendChild(controlText);
+
+      };
+
+      function CenterLeftControl(controlDiv, map) {
+        // Set CSS for the control border.
+        const controlUI = document.createElement("div");
+
+        controlUI.style.backgroundColor = "#fff";
+        controlUI.style.border = "2px solid #fff";
+        controlUI.style.borderRadius = "3px";
+        controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+        controlUI.style.cursor = "pointer";
+        controlUI.style.marginTop = "8px";
+        controlUI.style.marginBottom = "22px";
+        controlUI.style.textAlign = "center";
+        controlUI.style.marginLeft = "5px";
+        controlUI.title = "Apasati pentru a recentra harta pe Romania";
+        controlDiv.appendChild(controlUI);
+
+        // Set CSS for the control interior.
+        const controlText = document.createElement("div");
+
+        controlText.style.color = "rgb(25,25,25)";
+        controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+        controlText.style.fontSize = "16px";
+        controlText.style.lineHeight = "38px";
+        controlText.style.paddingLeft = "5px";
+        controlText.style.paddingRight = "5px";
+        controlText.innerHTML = "Recentrare";
+        controlUI.appendChild(controlText);
+
+      };
+
+      function initMap(){
+          const map = new google.maps.Map(document.getElementById("map"), {
+            center: Romania,
+            zoom: 6,
+            mapId: '27857cc3775dc8c4',
+            clickableIcons: false,
+            disableDefaultUI: true,
+            })
+
+        const markerBV1 = new google.maps.Marker({
+            position: BV1,
+            map: map,
+            title: "Facultatea Design de produs si mediu",
+            visible: false
+          });
+        const markerBV2 = new google.maps.Marker({
+            position: BV2,
+            map: map,
+            title: "Facultatea de Inginerie mecanica",
+            visible: false
+          });
+        const markerBV3 = new google.maps.Marker({
+            position: BV3,
+            map: map,
+            title: "Facultatea de Stiinta si ingineria materialelor",
+            visible: false,
+          });
+        const markerBV4 = new google.maps.Marker({
+            position: BV4,
+            map: map,
+            title: "Facultatea de Litere",
+            visible: false
+          });
+        const markerBV5 = new google.maps.Marker({
+            position: BV5,
+            map: map,
+            title: "Facultatea De Muzica",
+            visible: false,
+          });
+        const markerBV6 = new google.maps.Marker({
+            position: BV6,
+            map: map,
+            title: "Facultatea de Stiinte economica si administrarea afacerilor",
+            visible: false,
+          });
+        const markerBV7 = new google.maps.Marker({
+            position: BV7,
+            map: map,
+            title: "Facultatea de Inginerie electrica si stiinta calculatoarelor",
+            visible: false
+          });
+        const markerBV8 = new google.maps.Marker({
+            position: BV8,
+            map: map,
+            title: "Facultatea de Inginerie tehnologica si management industrial",
+            visible: false,
+          });
+        const markerBV9 = new google.maps.Marker({
+            position: BV9,
+            map: map,
+            title: "Facultatea de Drept",
+            visible: false
+          });
+        const markerBV10 = new google.maps.Marker({
+            position: BV10,
+            map: map,
+            title: "Facultatea de Matematica si informatica",
+            visible: false,
+          });
+        const markerBV11 = new google.maps.Marker({
+            position: BV11,
+            map: map,
+            title: "Facultatea de Psihologie si stiintele educatiei",
+            visible: false,
+          });
+        const markerBV12 = new google.maps.Marker({
+            position: BV12,
+            map: map,
+            title: "Facultatea de Alimentatie si turism",
+            visible: false,
+          });
+        const markerBV13 = new google.maps.Marker({
+            position: BV13,
+            map: map,
+            title: "Facultatea de Design mobilier si inginerie a lemnului",
+            visible: false
+          });
+        const markerBV14 = new google.maps.Marker({
+            position: BV14,
+            map: map,
+            title: "Facultatea de Silvicultura si exploatari forestiere",
+            visible: false,
+          });
+        const markerBV15 = new google.maps.Marker({
+            position: BV15,
+            map: map,
+            title: "Facultatea de Educatie fizica si sporturi montane",
+            visible: false
+          });
+        const markerBV16 = new google.maps.Marker({
+            position: BV16,
+            map: map,
+            title: "Facultatea de Medicina",
+            visible: false,
+          });
+        const markerBV17 = new google.maps.Marker({
+            position: BV17,
+            map: map,
+            title: "Facultatea de Sociologie si comunicare",
+            visible: false,
+          });
+        const markerBV18 = new google.maps.Marker({
+            position: BV18,
+            map: map,
+            title: "Facultatea de constructii",
+            visible: false,
+          });
+        const markerBV19 = new google.maps.Marker({
+            position: BV19,
+            map: map,
+            title: "Academia fortelor aeriene Henri Coanda",
+            visible: false,
+          });
+        const MenuDiv = document.getElementById("menu");
+        MenuButton(MenuDiv, map);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(MenuDiv);
+
+        const centerJudet = document.createElement("div");
+        CenterJudet(centerJudet, map);
+
+        const centerControlDiv = document.createElement("div");
+        CenterLeftControl(centerControlDiv, map);
+
+        const ConfirmMenu = document.getElementById("confirm");
+        document.getElementById("X").addEventListener("click", () =>{
+        ConfirmMenu.style.display = "none";
+      })
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: " ",
+      });
+  
+        google.maps.event.addListener(map, 'zoom_changed', function(){
+        var Zoom = map.getZoom();
+        if(Zoom == 6){
+            map.controls[google.maps.ControlPosition.TOP_CENTER].clear();
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+            map.panTo(Romania);
+            markerCluj.setVisible(true);
+            markerBrasov.setVisible(true);
+            markerBucuresti.setVisible(true);
+            markerTimisoara.setVisible(true);
+            markerIasi.setVisible(true);
+            markerArad.setVisible(true);
+            markerConstanta.setVisible(true);
+            markerBV1.setVisible(false);
+            markerBV2.setVisible(false);
+            markerBV3.setVisible(false);
+            markerBV4.setVisible(false);
+            markerBV5.setVisible(false);
+            markerBV6.setVisible(false);
+            markerBV7.setVisible(false);
+            markerBV8.setVisible(false);
+            markerBV9.setVisible(false);
+            markerBV10.setVisible(false);
+            markerBV11.setVisible(false);
+            markerBV12.setVisible(false);
+            markerBV13.setVisible(false);
+            markerBV14.setVisible(false);
+            markerBV15.setVisible(false);
+            markerBV16.setVisible(false);
+            markerBV17.setVisible(false);
+            markerBV18.setVisible(false);
+            markerBV19.setVisible(false);
+          }
+        });
+
+          const markerBrasov = new google.maps.Marker({
+          position: Brasov,
+          map: map,
+        });
+
+        markerBrasov.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Brasov);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Brasov);
+          map.setZoom(12);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+          markerBV1.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV1.title)
+            infoWindow.open({
+              anchor: markerBV1,
+              map,
+            })
+          });
+
+          markerBV1.setVisible(true);
+
+          markerBV1.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV1.addListener("click", () =>{
+        	marker = "BV1";
+        	document.getElementById("Save").className = markerBV1.title;
+        	document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	//document.getElementById("Admitere").className = "";
+        	//document.getElementById("Informatii").className = "";
+            ConfirmMenu.style.display = "block";
+            document.getElementById("text").innerHTML = markerBV1.title;
+            document.getElementById("return").className = "BV1";
+          })
+
+          markerBV2.setVisible(true);
+
+          markerBV2.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV2.title)
+            infoWindow.open({
+              anchor: markerBV2,
+              map,
+            })
+          });
+          markerBV2.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV2.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV2";
+        	document.getElementById("Save").className = markerBV2.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV2.title;
+            document.getElementById("return").className = "BV2";
+          })
+
+          markerBV3.setVisible(true);
+
+          markerBV3.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV3.title)
+            infoWindow.open({
+              anchor: markerBV3,
+              map,
+            })
+          });
+          markerBV3.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV3.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV3";
+        	document.getElementById("Save").className = markerBV3.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV3.title;
+            document.getElementById("return").className = "BV3";
+          })
+
+          markerBV4.setVisible(true);
+
+          markerBV4.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV4.title)
+            infoWindow.open({
+              anchor: markerBV4,
+              map,
+            })
+          });
+          markerBV4.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV4.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV4";
+        	document.getElementById("Save").className = markerBV4.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV4.title;
+            document.getElementById("return").className = "BV4";
+          })
+
+          markerBV5.setVisible(true);
+
+          markerBV5.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV5.title)
+            infoWindow.open({
+              anchor: markerBV5,
+              map,
+            })
+          });
+          markerBV5.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV5.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV5";
+        	document.getElementById("Save").className = markerBV5.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV5.title;
+            document.getElementById("return").className = "BV5";
+          });
+
+          markerBV6.setVisible(true);
+
+          markerBV6.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV6.title)
+            infoWindow.open({
+              anchor: markerBV6,
+              map,
+            })
+          });
+          markerBV6.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV6.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV6";
+        	document.getElementById("Save").className = markerBV6.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV6.title;
+            document.getElementById("return").className = "BV6";
+          });
+
+          markerBV7.setVisible(true);
+
+          markerBV7.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV7.title)
+            infoWindow.open({
+              anchor: markerBV7,
+              map,
+            })
+          });
+          markerBV7.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV7.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV7";
+        	document.getElementById("Save").className = markerBV7.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV7.title;
+            document.getElementById("return").className = "BV7";
+          });
+
+          markerBV8.setVisible(true);
+
+          markerBV8.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV8.title)
+            infoWindow.open({
+              anchor: markerBV8,
+              map,
+            })
+          });
+          markerBV8.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV8.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV8";
+        	document.getElementById("Save").className = markerBV8.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV8.title;
+            document.getElementById("return").className = "BV8";
+          });
+
+          markerBV9.setVisible(true);
+
+          markerBV9.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV9.title)
+            infoWindow.open({
+              anchor: markerBV9,
+              map,
+            })
+          });
+          markerBV9.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV9.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV9";
+        	document.getElementById("Save").className = markerBV9.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV9.title;
+            document.getElementById("return").className = "BV9";
+          });
+
+          markerBV10.setVisible(true);
+
+          markerBV10.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV10.title)
+            infoWindow.open({
+              anchor: markerBV10,
+              map,
+            })
+          });
+          markerBV10.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV10.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV10";
+        	document.getElementById("Save").className = markerBV10.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV10.title;
+            document.getElementById("return").className = "BV10";
+          });
+
+          markerBV11.setVisible(true);
+
+          markerBV11.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV11.title)
+            infoWindow.open({
+              anchor: markerBV11,
+              map,
+            })
+          });
+          markerBV11.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV11.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV11";
+        	document.getElementById("Save").className = markerBV11.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV11.title;
+            document.getElementById("return").className = "BV11";
+          });
+
+          markerBV12.setVisible(true);
+
+          markerBV12.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV12.title)
+            infoWindow.open({
+              anchor: markerBV12,
+              map,
+            })
+          });
+          markerBV12.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV12.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV12";
+        	document.getElementById("Save").className = markerBV12.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV12.title;
+            document.getElementById("return").className = "BV12";
+          });
+
+          markerBV13.setVisible(true);
+
+          markerBV13.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV13.title)
+            infoWindow.open({
+              anchor: markerBV13,
+              map,
+            })
+          });
+          markerBV13.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV13.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV13";
+        	document.getElementById("Save").className = markerBV13.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV13.title;
+            document.getElementById("return").className = "BV13";
+          });
+
+          markerBV14.setVisible(true);
+
+          markerBV14.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV14.title)
+            infoWindow.open({
+              anchor: markerBV14,
+              map,
+            })
+          });
+          markerBV14.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV14.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV14";
+        	document.getElementById("Save").className = markerBV14.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV14.title;
+            document.getElementById("return").className = "BV14";
+          });
+
+          markerBV15.setVisible(true);
+
+          markerBV15.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV15.title)
+            infoWindow.open({
+              anchor: markerBV15,
+              map,
+            })
+          });
+          markerBV15.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV15.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV15";
+        	document.getElementById("Save").className = markerBV15.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV15.title;
+            document.getElementById("return").className = "BV15";
+          });
+
+          markerBV16.setVisible(true);
+
+          markerBV16.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV16.title)
+            infoWindow.open({
+              anchor: markerBV16,
+              map,
+            })
+          });
+          markerBV16.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV16.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV16";
+        	document.getElementById("Save").className = markerBV16.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV16.title;
+            document.getElementById("return").className = "BV16";
+          });
+
+          markerBV17.setVisible(true);
+
+          markerBV17.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV17.title)
+            infoWindow.open({
+              anchor: markerBV17,
+              map,
+            })
+          });
+          markerBV17.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV17.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV17";
+        	document.getElementById("Save").className = markerBV17.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV17.title;
+            document.getElementById("return").className = "BV17";
+          });
+
+          markerBV18.setVisible(true);
+
+          markerBV18.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV18.title)
+            infoWindow.open({
+              anchor: markerBV18,
+              map,
+            })
+          });
+          markerBV18.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV18.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV18";
+        	document.getElementById("Save").className = markerBV18.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV18.title;
+            document.getElementById("return").className = "BV18";
+          });
+
+          markerBV19.setVisible(true);
+
+          markerBV19.addListener("mouseover", () =>{
+            infoWindow.setContent(markerBV19.title)
+            infoWindow.open({
+              anchor: markerBV19,
+              map,
+            })
+          });
+          markerBV19.addListener("mouseout", () =>{
+            infoWindow.close();
+          });
+          markerBV19.addListener("click", () =>{
+            ConfirmMenu.style.display = "block";
+            marker = "BV19";
+        	document.getElementById("Save").className = markerBV19.title;
+            document.getElementById("Contact").className = "https://www.unitbv.ro/";
+        	document.getElementById("Admitere").className = "";
+        	document.getElementById("Informatii").className = "";
+            document.getElementById("text").innerHTML = markerBV19.title;
+            document.getElementById("return").className = "BV19";
+          });
+        })
+        const markerIasi = new google.maps.Marker({
+          position: Iasi,
+          map: map,
+        });
+
+        markerIasi.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Iasi);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Iasi);
+          map.setZoom(12);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+        })
+
+        const markerBucuresti = new google.maps.Marker({
+          position: Bucuresti,
+          map: map,
+        });
+
+        markerBucuresti.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Bucuresti);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Bucuresti);
+          map.setZoom(11);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+        })
+
+        const markerCluj = new google.maps.Marker({
+          position: Cluj,
+          map: map,
+        });
+
+        markerCluj.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Cluj);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Cluj);
+          map.setZoom(12);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+        })
+
+        const markerTimisoara = new google.maps.Marker({
+          position: Timisoara,
+          map: map,
+        });
+
+        markerTimisoara.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Timisoara);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Timisoara);
+          map.setZoom(12);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+        })
+        const markerConstanta = new google.maps.Marker({
+          position: Constanta,
+          map: map,
+        })
+
+        markerConstanta.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Constanta);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Constanta);
+          map.setZoom(12);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+        })
+
+        const markerArad = new google.maps.Marker({
+          position: Arad,
+          map: map,
+        })
+
+        markerArad.addListener("click", () =>{
+          centerJudet.addEventListener("click", () =>{
+            map.panTo(Arad);
+            map.setZoom(12);
+          })
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerJudet);
+          map.panTo(Arad);
+          map.setZoom(12);
+          markerCluj.setVisible(false);
+          markerBrasov.setVisible(false);
+          markerBucuresti.setVisible(false);
+          markerTimisoara.setVisible(false);
+          markerIasi.setVisible(false);
+          markerArad.setVisible(false);
+          markerConstanta.setVisible(false);
+        })
+
+          centerControlDiv.addEventListener("click", () =>{
+          map.panTo(Romania);
+          map.setZoom(6);
+          markerCluj.setVisible(true);
+          markerBrasov.setVisible(true);
+          markerBucuresti.setVisible(true);
+          markerTimisoara.setVisible(true);
+          markerIasi.setVisible(true);
+          markerArad.setVisible(true);
+          markerConstanta.setVisible(true);
+          markerBV1.setVisible(false);
+          markerBV2.setVisible(false);
+          markerBV3.setVisible(false);
+          markerBV4.setVisible(false);
+          markerBV5.setVisible(false);
+          markerBV6.setVisible(false);
+          markerBV7.setVisible(false);
+          markerBV8.setVisible(false);
+          markerBV9.setVisible(false);
+          markerBV10.setVisible(false);
+          markerBV11.setVisible(false);
+          markerBV12.setVisible(false);
+          markerBV13.setVisible(false);
+          markerBV14.setVisible(false);
+          markerBV15.setVisible(false);
+          markerBV16.setVisible(false);
+          markerBV17.setVisible(false);
+          markerBV18.setVisible(false);
+          markerBV19.setVisible(false);
+          map.controls[google.maps.ControlPosition.TOP_CENTER].clear();
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+        });
+          map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+      }
+
+      window.initMap = initMap;
+    </script>
   </head>
   <body>
     <div id="map"></div>
@@ -13,5 +928,49 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5Gn8WKPgq5cxGsEe8VtEGnKiT5CmwgXk&callback=initMap&v=weekly"
       defer
     ></script>
+    <div id="menu"></div>
+     <div id="confirm" style="display: none;">
+       <p id="text">
+       Facultatea de pula mea
+       </p>
+      <button id="Informatii">Informatii</button>
+      <button id="X">X</button>
+      <button id="Admitere">Admitere</button>
+      <button id="Save">Salveaza</button>
+      <button id="Contact">Contact</button>
+    </div>
+    <div id="return" class="BV1" style="display: none;"></div>
+    <script>
+    	function returnStr(){
+    		const str = document.getElementById("return");
+    		return str.className;
+    	}
+    	function returnContact(){
+    		const contact = document.getElementById("Contact");
+    		return contact.className;
+    	}
+    	function returnInformatii(){
+    		const informatii = document.getElementById("Informatii");
+    		return informatii.className;
+    	}
+    	function returnAdmitere(){
+    		const admitere = document.getElementById("Admitere");
+    		return admitere.className;
+    	}
+    	function returnFac(){
+    		const fac = document.getElementById("Save");
+    		return fac.className;
+    	}
+    	function returnMarker(){
+    		return marker;
+    	}
+    	function alertError(){
+    		window.alert("Ati salvat deja aceasta facultate!");
+    		//document.getElementById("text").innerHTML += "<p style=" + "\"" + "color: #ff0000;\"" + ">Ati salvat deja aceasta facultate!</p>";
+    	}
+    	function alertSuccess(){
+    		
+    	}
+    	</script>
   </body>
 </html>
