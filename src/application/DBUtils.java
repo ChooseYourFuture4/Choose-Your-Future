@@ -20,6 +20,8 @@ import javafx.util.Duration;
 
 public class DBUtils{
 
+	public static int id;
+	
 	public static void changeScene(ActionEvent e, String File, String username){
 		Parent root = null;
 		try{
@@ -95,7 +97,7 @@ public class DBUtils{
 		String SecurePwd = null;
 		String Salt = null;
 		try {
-			CheckPwd = conn.prepareStatement("SELECT Salt, Password FROM users WHERE Username = ?");
+			CheckPwd = conn.prepareStatement("SELECT Salt, Password, IdUsers FROM users WHERE Username = ?");
 			CheckPwd.setString(1, Username.toString());
 			Resultset = CheckPwd.executeQuery();
 			if(!Resultset.isBeforeFirst())
@@ -108,6 +110,7 @@ public class DBUtils{
 			if(!Encryption.verifiyPwd(Pwd, SecurePwd, Salt)){
 				return false;
 			}
+			id = Resultset.getInt(3);
 		}
 		catch(SQLException ex) {
 			ex.printStackTrace();
@@ -129,6 +132,54 @@ public class DBUtils{
 					ex.printStackTrace();
 				}
 			}
+		}
+		return true;
+	}
+	
+	public static boolean saveFac(String marker, String facultate) {
+		PreparedStatement CheckFac = null;
+		PreparedStatement SaveFac = null;
+		Connection conn = Main.conn;
+		ResultSet resultSet = null;
+		try {
+			CheckFac = conn.prepareStatement("SELECT Facultate FROM Facultati WHERE IdUser = ?");
+			CheckFac.setInt(1, id);
+			resultSet = CheckFac.executeQuery();
+			if(resultSet.isBeforeFirst()) {
+				while(resultSet.next()) {
+					if(resultSet.getString(1).equalsIgnoreCase(facultate)) {
+						return false;
+					}
+				}
+			}
+			SaveFac = conn.prepareStatement("INSERT INTO Facultati VALUES (?, ?, ?)");
+			SaveFac.setInt(1, id);
+			SaveFac.setString(2, marker);
+			SaveFac.setString(3, facultate);
+			SaveFac.execute();
+		}
+		catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if(CheckFac != null)
+				try {
+					CheckFac.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			if(SaveFac != null)
+				try {
+					SaveFac.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			if(resultSet != null)
+				try {
+					resultSet.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 		}
 		return true;
 	}

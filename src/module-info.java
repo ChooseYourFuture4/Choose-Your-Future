@@ -6,6 +6,9 @@ module ChooseYourFuture {
 	requires javafx.base;
 	requires jdk.crypto.cryptoki;
 	requires javafx.web;
+	requires jdk.jsobject;
+	requires java.xml;
+	requires java.desktop;
 	
 	opens application to javafx.graphics, javafx.fxml;
 }
