@@ -27,10 +27,10 @@ public class Main extends Application {
 		try {
 			if(conn == null)
 				return;
-			Parent root = FXMLLoader.load(getClass().getResource("/FxmlFiles/MainMenu.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/FxmlFiles/MainLoginSignUp.fxml"));
+			root.getStylesheets().add(getClass().getResource("/CssFiles/Login.css").toExternalForm());
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("/CssFiles/MainMenu.css").toExternalForm());
-			Image image = new Image(getClass().getResource("/Photos/Icon.jpg").toURI().toString());
+			Image image = new Image(getClass().getResource("/Photos/Logo4.png").toURI().toString());
 			primaryStage.getIcons().add(image);
 			primaryStage.setTitle("Choose Your Future");
 			primaryStage.initStyle(StageStyle.UNDECORATED);

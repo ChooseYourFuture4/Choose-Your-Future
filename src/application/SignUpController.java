@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ResourceBundle;
@@ -25,13 +26,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class SignUpController implements Initializable{
 	@FXML
 	Button SignUpButton;
 	@FXML
-	Label ErrorLabel;
+	Text ErrorLabel;
 	@FXML
 	TextField UsernameTextField;
 	@FXML
@@ -50,6 +52,14 @@ public class SignUpController implements Initializable{
 	ImageView ErrorCnfPwd;
 	@FXML
 	AnchorPane AnchorSignUp;
+	@FXML
+	private ImageView Fundal;
+	@FXML
+	private ImageView Title;
+	@FXML
+	private ImageView CloseImage;
+	@FXML
+	private Button Close;
 	
 	private String Username;
 	private String Email;
@@ -60,11 +70,21 @@ public class SignUpController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//Image image = new Image("WarningIcon.jpg");
-		//ErrorUsername.setImage(image);
-		//ErrorEmail.setImage(image);
-		//ErrorPwd.setImage(image);
-		//ErrorCnfPwd.setImage(image);
+		try {
+			Image close = new Image(getClass().getResource("/Photos/CloseIcon.png").toURI().toString());
+			CloseImage.setImage(close);
+			Image fundal = new Image(getClass().getResource("/Photos/Log-SignUp-Fundal.jpg").toURI().toString());
+			Fundal.setImage(fundal);
+			Image title = new Image(getClass().getResource("/Photos/SignUpTitle.jpg").toURI().toString());
+			Title.setImage(title);			
+			Image image = new Image(getClass().getResource("/Photos/WarningIcon.jpg").toURI().toString());
+			ErrorUsername.setImage(image);
+			ErrorEmail.setImage(image);
+			ErrorPwd.setImage(image);
+			ErrorCnfPwd.setImage(image);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void SignUp(ActionEvent e) throws IOException{
@@ -145,6 +165,7 @@ public class SignUpController implements Initializable{
 		//Scene Transition
 		
 		Parent root = FXMLLoader.load(getClass().getResource("/FxmlFiles/Login.fxml"));
+		root.getStylesheets().add(getClass().getResource("/CssFiles/Login.css").toExternalForm());
 		Scene scene = SignUpButton.getScene();
 		root.translateYProperty().set(-(scene.getHeight()));
 		BorderPane rootPane = (BorderPane) scene.getRoot();
@@ -158,5 +179,8 @@ public class SignUpController implements Initializable{
 			PaneScene.getChildren().remove(AnchorSignUp);
 		});
 		timeline.play();
+	}
+	public void CloseApp(ActionEvent e) {
+		System.exit(0);
 	}
 }

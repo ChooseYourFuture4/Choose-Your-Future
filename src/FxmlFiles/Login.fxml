@@ -10,11 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="fundal" fx:id="AnchorLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="319.0" style="-fx-background-color: WHITE;" stylesheets="@../../../../Downloads/Login-Page.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane id="fundal" fx:id="AnchorLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="319.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
-      <ImageView fitHeight="463.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Fundal" fitHeight="463.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../Desktop/fundal-log.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Title" fitHeight="130.0" fitWidth="276.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/Autentificare.png" />
          </image>
       </ImageView>
       <Label layoutX="31.0" layoutY="441.0" text="By Serban Eduard and Stefan Balanica" textFill="WHITE">
@@ -47,11 +52,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="ErrorLabel" alignment="CENTER" layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="232.0" text=" " textFill="RED" />
-      <ImageView fitHeight="130.0" fitWidth="276.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Downloads/Autentificare.png" />
-         </image>
-      </ImageView>
+      <Label fx:id="ErrorLabel" alignment="CENTER" layoutX="14.0" layoutY="86.0" prefHeight="20.0" prefWidth="241.0" text=" " textAlignment="CENTER" textFill="RED" />
+      <Button id="Close" fx:id="Close" layoutX="280.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CloseApp" prefHeight="25.0" prefWidth="25.0">
+         <graphic>
+            <ImageView fx:id="CloseImage" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

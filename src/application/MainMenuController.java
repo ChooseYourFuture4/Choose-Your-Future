@@ -13,17 +13,14 @@ import org.w3c.dom.events.EventTarget;
 import org.w3c.dom.events.EventListener;
 
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
 import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -35,7 +32,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.PopupFeatures;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class MainMenuController extends Region implements Initializable{
@@ -55,7 +52,17 @@ public class MainMenuController extends Region implements Initializable{
 	@FXML
 	ImageView ImageReturn;
 	@FXML
+	ImageView ImageReturn1;
+	@FXML
 	Button viewLista;
+	@FXML
+	Label Username;
+	@FXML
+	Button LogOut;
+	@FXML
+	ImageView FundalStanga;
+	@FXML
+	ImageView PozaProfil;
 	
 	private String link = getClass().getResource("/MainMapPack/MainMap.html").toExternalForm();
 	private WebEngine engine;
@@ -63,8 +70,13 @@ public class MainMenuController extends Region implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
+			Image profil = new Image(getClass().getResource("/Photos/profil.png").toURI().toString());
+			PozaProfil.setImage(profil);
+			Image fundal = new Image(getClass().getResource("/Photos/Meniu3.jpg").toURI().toString());
+			FundalStanga.setImage(fundal);
 			Image image = new Image(getClass().getResource("/Photos/CloseIcon.png").toURI().toString());
 			ImageReturn.setImage(image);
+			ImageReturn1.setImage(image);
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}
@@ -138,10 +150,20 @@ public class MainMenuController extends Region implements Initializable{
 				String marker = (String)engine.executeScript("returnMarker()");
 				String facultate = (String)engine.executeScript("returnFac()");
 				if(DBUtils.saveFac(marker, facultate) == false) {
-					engine.executeScript("alertError()");
+					Alert a = new Alert(AlertType.NONE,"", ButtonType.OK);
+					a.setHeaderText("Ati salvat deja aceasta facultate!");
+					a.initStyle(StageStyle.UNDECORATED);
+					a.setX(780);
+					a.setY(200);
+					a.showAndWait();
 				}
 				else {
-					engine.executeScript("alertSuccess()");
+					Alert a = new Alert(AlertType.NONE,"", ButtonType.OK);
+					a.setHeaderText("Salvare cu success!");
+					a.initStyle(StageStyle.UNDECORATED);
+					a.setX(780);
+					a.setY(200);
+					a.showAndWait();
 				}
 				
 			}
@@ -194,6 +216,8 @@ public class MainMenuController extends Region implements Initializable{
 	}
 	
 	public void viewLista(ActionEvent e) {
+		DBUtils.getSavedFac(Lista, engine, DREAPTA);
+		
 		TranslateTransition slide = new TranslateTransition();
 		slide.setDuration(Duration.millis(400));
 		slide.setNode(STANGA);
@@ -233,5 +257,29 @@ public class MainMenuController extends Region implements Initializable{
 		DREAPTA.setTranslateX(0);
 		slide.play();
 		slide1.play();
+	}
+	
+	public void listaReturn() {
+		TranslateTransition slide = new TranslateTransition();
+		slide.setDuration(Duration.millis(400));
+		slide.setNode(DREAPTA);
+		
+		slide.setToX(250);
+		slide.play();
+		
+		DREAPTA.setTranslateX(0);
+		slide.play();
+	}
+	
+	public void setUser(String username) {
+		Username.setText(username);
+	}
+	
+	public void logOut(ActionEvent e){
+		DBUtils.changeScene(e, "/FxmlFiles/MainLoginSignUp.fxml", "/CssFiles/Login.css", null);
+	}
+	
+	public void toChestionar(ActionEvent e) {
+		DBUtils.changeScene(e, "/FxmlFiles/Chestionar1.fxml","/CssFiles/Chestionar.css", null);
 	}
 }

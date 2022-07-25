@@ -9,10 +9,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="AnchorSignUp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="319.0" stylesheets="@../../../../Downloads/Signup.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpController">
+<AnchorPane fx:id="AnchorSignUp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpController">
    <children>
-      <ImageView fitHeight="463.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Fundal" fitHeight="463.0" fitWidth="319.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../Desktop/fundal-log.jpg" />
          </image>
@@ -41,19 +42,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fx:id="ErrorUsername" fitHeight="20.0" fitWidth="20.0" layoutX="278.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="ErrorEmail" fitHeight="20.0" fitWidth="20.0" layoutX="278.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="ErrorPwd" fitHeight="20.0" fitWidth="20.0" layoutX="278.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="ErrorCnfPwd" fitHeight="20.0" fitWidth="20.0" layoutX="278.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <Label fx:id="ErrorLabel" alignment="CENTER" layoutX="8.0" layoutY="107.0" prefHeight="17.0" prefWidth="244.0" text=" " textFill="RED" textOverrun="CLIP">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="161.0" fitWidth="278.0" layoutX="-3.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ErrorUsername" fitHeight="20.0" fitWidth="20.0" layoutX="252.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="ErrorEmail" fitHeight="20.0" fitWidth="20.0" layoutX="252.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="ErrorPwd" fitHeight="20.0" fitWidth="20.0" layoutX="252.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="ErrorCnfPwd" fitHeight="20.0" fitWidth="20.0" layoutX="252.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <Text fx:id="ErrorLabel" fill="RED" layoutX="13.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="CENTER" wrappingWidth="230.0" />
+      <ImageView fx:id="Title" fitHeight="161.0" fitWidth="278.0" layoutX="-3.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../Downloads/Creeaza.png" />
          </image>
       </ImageView>
+      <Button id="Close" fx:id="Close" layoutX="280.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CloseApp" prefHeight="25.0" prefWidth="25.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fx:id="CloseImage" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
