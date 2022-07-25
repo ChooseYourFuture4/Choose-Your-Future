@@ -1,0 +1,40 @@
+#DA {
+-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-style:none;
+-fx-border-width: 2;
+-fx-background-insets: 0 0 0 0;
+}
+#NU {
+-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-style:none;
+-fx-border-width: 2;
+-fx-background-insets: 0 0 0 0;
+}
+#Save{
+-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-style:none;
+-fx-border-width: 2;
+-fx-background-insets: 0 0 0 0;
+}
+#Scroll{
+	-fx-background: transparent;
+	-fx-background-color: transparent;
+}
+#Incepe{
+	-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-style:none;
+-fx-border-width: 2;
+-fx-background-insets: 0 0 0 0;
+}

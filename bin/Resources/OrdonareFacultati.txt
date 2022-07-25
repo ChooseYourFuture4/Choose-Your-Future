@@ -1,0 +1,39 @@
+RS
+Academia fortelor aeriene Henri Coanda
+RI
+Facultatea de Inginerie mecanica
+AI
+Facultatea de Litere
+RI
+Facultatea de Inginerie tehnologica si management industrial
+RI
+Facultatea de Stiinta si ingineria materialelor
+CI
+Facultatea de Inginerie electrica si stiinta calculatoarelor
+RS
+Facultatea de Silvicultura si exploatari forestiere
+RC
+Facultatea de constructii
+SC
+Facultatea de Alimentatie si turism
+IC
+Facultatea de Matematica si informatica
+CI
+Facultatea de Stiinte economice si administrarea afacerilor
+CS
+Facultatea de Drept
+IS
+Facultatea de Medicina
+SC
+Facultatea de Psihologie si stiintele educatiei
+RA
+Facultatea de Educatie fizica si sporturi montane
+AC
+Facultatea de Muzica
+RA
+Facultatea design de produs si mediu
+RA
+Facultatea de Design de Mobilier și Inginerie a Lemnului
+SE
+Facultatea de Sociologie și comunicare
+STOP

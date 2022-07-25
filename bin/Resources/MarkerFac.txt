@@ -1,0 +1,38 @@
+Facultatea Design de produs si mediu
+BV1
+Facultatea de Inginerie mecanica
+BV2
+Facultatea de Stiinta si ingineria materialelor
+BV3
+Facultatea de Litere
+BV4
+Facultatea de Muzica
+BV5
+Facultatea de Stiinte economice si administrarea afacerilor
+BV6
+Facultatea de Inginerie electrica si stiinta calculatoarelor
+BV7
+Facultatea de Inginerie tehnologica si management industrial
+BV8
+Facultatea de Drept
+BV9
+Facultatea de Matematica si informatica
+BV10
+Facultatea de Psihologie si stiintele educatiei
+BV11
+Facultatea de Alimentatie si turism
+BV12
+Facultatea de Design mobilier si inginerie a lemnului
+BV13
+Facultatea de Silvicultura si exploatari forestiere
+BV14
+Facultatea de Educatie fizica si sporturi montane
+BV15
+Facultatea de Medicina
+BV16
+Facultatea de Sociologie si comunicare
+BV17
+Facultatea de constructii
+BV18
+Academia fortelor aeriene Henri Coanda
+BV19
