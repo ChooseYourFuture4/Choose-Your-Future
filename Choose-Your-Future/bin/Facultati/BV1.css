@@ -1,0 +1,12 @@
+html{
+  font-size: 20px !important;
+}
+#link{
+  font-size: 18px;
+  background-color: transparent;
+  color: #0645AD;
+  border: none;
+  cursor: pointer;
+}
+#plink{
+}
