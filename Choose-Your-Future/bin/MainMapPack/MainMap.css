@@ -1,0 +1,100 @@
+#map{
+	height: 100%;
+}
+
+html,
+body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+a[title="Report errors in the road map or imagery to Google"] {
+    display: none !important;
+}
+.gm-style-cc:last-child {
+    display: none !important;
+}
+.gm-ui-hover-effect {
+    display: none !important;
+}
+
+#confirm{
+  position: absolute;
+  top: 150px;
+  left: 190px;
+  background-color: white;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 350px;
+  height: 150px;
+}
+#Informatii{
+  background-color: ghostwhite;
+  text-align: center;
+  width: 90px;
+  position: absolute;
+  top: 80px;
+  left: 70px;
+  font-size: 16px;
+  border-radius: 24px;
+  border-color: #d5972c;
+  border-width: 2;
+  cursor: pointer;
+}
+#Admitere{
+  background-color: ghostwhite;
+  text-align: center;
+  width: 90px;
+  position: absolute;
+  top: 110px;
+  left: 70px;
+  font-size: 16px;
+  border-radius: 24px;
+  border-color: #d5972c;
+  border-width: 2;
+  cursor: pointer;
+}
+#X{
+  background-color: transparent;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+#Save{
+  background-color: ghostwhite;
+  width: 90px;
+  position: absolute;
+  top: 110px;
+  left: 190px;
+  font-size: 16px;
+  border-radius: 24px;
+  border-color: #d5972c;
+  border-width: 2;
+  cursor: pointer;
+}
+#Contact{
+  background-color: ghostwhite;
+  width: 90px;
+  position: absolute;
+  top: 80px;
+  left: 190px;
+  font-size: 16px;
+  border-radius: 24px;
+  border-color: #d5972c;
+  border-width: 2;
+  cursor: pointer;
+}
+#text{ 
+  position: relative;
+  top: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+#menu{
+	margin-left: 5px;
+}

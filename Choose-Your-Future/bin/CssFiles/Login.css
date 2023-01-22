@@ -1,0 +1,36 @@
+#ButLog {
+-fx-font-size: 19px;
+-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-style:none;
+-fx-border-width: 2;
+
+}
+
+#username {
+-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-width: 2;
+}
+#parola {
+-fx-background-radius: 24px;
+-fx-background-color: ghostwhite;
+-fx-border-color: d5972c;
+-fx-border-radius: 24px;
+-fx-border-width: 2;
+}
+#fundal {
+ -fx-background-color: #FFFFFF;
+}
+
+#SignUp {
+-fx-background-color: transparent;
+-fx-text-fill: d5972c;
+}
+#Close{
+-fx-background-color: transparent;
+}
